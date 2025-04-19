@@ -3,6 +3,8 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import org.junit.After
+
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
@@ -35,7 +37,7 @@ class NewTestListener {
 		println testCaseContext.getTestCaseVariables()
 	}*/
 	
-	@BeforeTestCase
+	@BeforeTestSuite
 	def openBrowser() {
 		
 		WebUI.openBrowser('')
@@ -50,6 +52,14 @@ class NewTestListener {
 		
 	
 		WebUI.waitForPageLoad(time)
+		
+	}
+	
+	
+	@AfterTestSuite
+	def closeBrowser() {
+		
+		WebUI.closeBrowser()
 		
 	}
 }
