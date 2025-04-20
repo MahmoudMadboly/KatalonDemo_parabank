@@ -13,9 +13,13 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+import groovy.transform.Undefined.EXCEPTION
+
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import javassist.bytecode.stackmap.BasicBlock.Catch
 
 import com.kms.katalon.core.annotation.BeforeTestCase
 import com.kms.katalon.core.annotation.BeforeTestSuite
@@ -36,10 +40,15 @@ class NewTestListener {
 		println testCaseContext.getTestCaseId()
 		println testCaseContext.getTestCaseVariables()
 	}*/
-	
-	@BeforeTestSuite
-	def openBrowser() {
+
+	@BeforeTestCase
+	def deforeTestCase(TestCaseContext TestCaseContext) {
 		
+		//get current test case id
+		String testCaseID = TestCaseContext.getTestCaseId();
+		
+		
+		//open browser
 		WebUI.openBrowser('')
 		
 		def BrowserEndPoint = findTestData("URL")
@@ -50,16 +59,28 @@ class NewTestListener {
 		
 		WebUI.navigateToUrl(url)
 		
-	
 		WebUI.waitForPageLoad(time)
 		
+		
+		//if current test case id is sign up then skip login
+		if(testCaseID.contains("Register")) {
+			
+			println("⏭ Skipping login for SignUp test case: $testCaseId")
+		
+			}else {
+				
+				
+				//login to app with the registered username & password
+				WebUI.sendKeys(findTestObject('Object Repository/Login/userName'), GlobalVariable.CreatedUseName)
+				
+				WebUI.sendKeys(findTestObject('Object Repository/Login/passWord'), GlobalVariable.CreatedPassWord)
+				
+				WebUI.click(findTestObject('Object Repository/Login/loginButton'))
+				
+				WebUI.waitForPageLoad(time)
+				
+				
+			}	
 	}
 	
-	
-	@AfterTestSuite
-	def closeBrowser() {
-		
-		WebUI.closeBrowser()
-		
-	}
 }

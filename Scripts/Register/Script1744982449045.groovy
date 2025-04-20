@@ -22,9 +22,6 @@ import org.testng.Assert
 import org.testng.Assert as Keys
 
 
-if(WebUI) {
-	
-}
 //load test data from the file
 def testData = findTestData("Sign up")
 
@@ -41,12 +38,15 @@ def user_name = testData.getValue("Username", 1)
 def pass_word = testData.getValue("Password", 1)
 def confirm_passWord = testData.getValue("Confirm", 1)
 
+GlobalVariable.CreatedUseName = user_name
+GlobalVariable.CreatedPassWord = pass_word
+
 
 int time = 5
 
 
 // pass each test data to each step
-WebUI.click(findTestObject('Object Repository/Register/Register button'))
+CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Register/Register button'))
 
 WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
 

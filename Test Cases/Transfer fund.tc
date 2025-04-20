@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Transfer fund</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>9e7bd933-f7ba-4673-a76b-f3dbc9c44b18</testCaseGuid>
+</TestCaseEntity>

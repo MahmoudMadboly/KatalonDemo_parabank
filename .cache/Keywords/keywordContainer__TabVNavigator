@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "EBABCDBF84406E82FBEC44FB89BF0FF6",
+  "keywordClasses": [
+    {
+      "name": "keywordContainer.TabVNavigator",
+      "keywordMethods": [
+        {
+          "name": "navigateToFeature",
+          "parameters": [
+            {
+              "name": "testObject",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

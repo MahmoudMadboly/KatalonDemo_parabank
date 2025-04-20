@@ -17,27 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-int time = 3
 
 
-String AccountCreatedSuccessfully = "Congratulations, your account is now open."
-
-//step1: will enter to open a new account screen
-CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
-
-//step2: chech that we are in the right page
-WebUI.verifyElementPresent(findTestObject('Object Repository/Open new account/Open new account heading'), time)
-
-//step3: open account type list
-WebUI.click(findTestObject('Object Repository/Open new account/account type list'))
-
-//step4: select the requested account type
-WebUI.click(findTestObject('Object Repository/Open new account/Checking account'))
-
-//step5: save the account
-WebUI.click(findTestObject('Object Repository/Open new account/Save new account button'))
-
-//step6: verify that the account created successfully
-WebUI.waitForElementPresent(findTestObject('Object Repository/Open new account/account added_success message'), time)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Open new account/account added_success message'), AccountCreatedSuccessfully)
+//step1: will enter to open transfer fund screen
+CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'()
