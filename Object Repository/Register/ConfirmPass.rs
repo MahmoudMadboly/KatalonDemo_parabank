@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ConfirmMail</name>
+   <name>ConfirmPass</name>
    <tag></tag>
    <elementGuidId>e2501f9a-7a54-4dca-a98e-c42c0282e88b</elementGuidId>
    <selectorCollection>
@@ -11,7 +11,6 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>

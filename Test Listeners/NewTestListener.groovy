@@ -42,7 +42,7 @@ class NewTestListener {
 	}*/
 
 	@BeforeTestCase
-	def deforeTestCase(TestCaseContext TestCaseContext) {
+	def beforeTestCase(TestCaseContext TestCaseContext) {
 		
 		//get current test case id
 		String testCaseID = TestCaseContext.getTestCaseId();
@@ -51,13 +51,22 @@ class NewTestListener {
 		//open browser
 		WebUI.openBrowser('')
 		
-		def BrowserEndPoint = findTestData("URL")
+		//get test data
+		CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
 		
+		
+		/*
+		//load data sheet
+		def BrowserEndPoint = findTestData("General Data")
+		
+		//get test data
 		def url = BrowserEndPoint.getValue("End point", 1)
+		*/
+		
 		
 		println "Opening browser..."
 		
-		WebUI.navigateToUrl(url)
+		WebUI.navigateToUrl(GlobalVariable.test_Data)
 		
 		WebUI.waitForPageLoad(time)
 		

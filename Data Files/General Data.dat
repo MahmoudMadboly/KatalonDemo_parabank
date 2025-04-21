@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataFileEntity>
    <description></description>
-   <name>URL</name>
+   <name>General Data</name>
    <tag></tag>
    <connectionProperties/>
    <containsHeaders>true</containsHeaders>
@@ -12,6 +12,6 @@
    <isInternalPath>false</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>URL</sheetName>
+   <sheetName>General Data</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>

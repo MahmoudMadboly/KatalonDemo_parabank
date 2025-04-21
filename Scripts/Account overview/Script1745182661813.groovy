@@ -20,7 +20,7 @@ import org.openqa.selenium.Keys as Keys
 int time = 5
 
 //step1: will enter to open accounts overview screen
-CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Accounts Overview/Accounts Overview button'))
+CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Accounts Overview/Accounts Overview button'))
 
 //verift that i am in the right screen
 WebUI.verifyElementPresent(findTestObject('Object Repository/Accounts Overview/Accounts Overview heading'), time)

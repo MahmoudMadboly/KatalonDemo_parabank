@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Transfer fund heading</name>
+   <name>Account option_2</name>
    <tag></tag>
-   <elementGuidId>84847626-7c30-48f5-a7c3-e26f1af320c5</elementGuidId>
+   <elementGuidId>2f97bb55-d46a-4b19-9721-5db4b76ffc0f</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//h1 [text() = '
-      Transfer Funds
-    ']</value>
+         <value>//select [@id = 'toAccountId']/option[1]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,9 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//h1 [text() = '
-      Transfer Funds
-    ']</value>
-      <webElementGuid>c82adf01-deec-4620-9a37-909aaf8d27d1</webElementGuid>
+      <value>//select [@id = 'toAccountId']/option[1]</value>
+      <webElementGuid>73c21715-375e-4a74-a124-3853e911e8e6</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

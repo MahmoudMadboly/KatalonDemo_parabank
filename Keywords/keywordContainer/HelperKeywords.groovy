@@ -20,7 +20,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
 
-public class TabVNavigator {
+public class HelperKeywords {
 
 	//this is a custom dynamic method to navigate to features
 	@Keyword
@@ -37,5 +37,20 @@ public class TabVNavigator {
 		String newAccountNumber = WebUI.getText(TestObject)
 		GlobalVariable.CreatedAccountNumber
 		println(newAccountNumber)
+	}
+	
+	
+	@Keyword
+	//method to fetch test data
+	def getTestData(String sheetName , String coulumnName, int rowIndex) {
+		
+		//fetch data sheet
+		def dataSheet = findTestData(sheetName)
+		
+		//get test data
+		def testData = dataSheet.getValue(coulumnName, rowIndex)
+		
+		GlobalVariable.test_Data = testData
+		
 	}
 }

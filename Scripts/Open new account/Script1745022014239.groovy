@@ -23,7 +23,7 @@ int time = 3
 String AccountCreatedSuccessfully = "Congratulations, your account is now open."
 
 //step1: will enter to open a new account screen
-CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
+CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
 
 //step2: chech that we are in the right page
 WebUI.verifyElementPresent(findTestObject('Object Repository/Open new account/Open new account heading'), time)
@@ -38,7 +38,7 @@ WebUI.click(findTestObject('Object Repository/Open new account/Checking account'
 WebUI.click(findTestObject('Object Repository/Open new account/Save new account button'))
 
 //get & store the created account no.
-CustomKeywords.'keywordContainer.TabVNavigator.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
+CustomKeywords.'keywordContainer.HelperKeywords.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
 
 //step6: verify that the account created successfully
 WebUI.waitForElementPresent(findTestObject('Object Repository/Open new account/account added_success message'), time)
