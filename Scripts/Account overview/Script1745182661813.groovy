@@ -19,27 +19,9 @@ import org.openqa.selenium.Keys as Keys
 
 int time = 5
 
-//step1: will enter to open transfer fund screen
-CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
+//step1: will enter to open accounts overview screen
+CustomKeywords.'keywordContainer.TabVNavigator.navigateToFeature'(findTestObject('Object Repository/Accounts Overview/Accounts Overview button'))
 
-//verify that i am in the right screen
-WebUI.verifyElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund heading'), time)
-
-//enter an amount to be transferred
-WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), null)
-
-//open from account list
-WebUI.click(findTestObject('Object Repository/Transfer fund/From account list'))
- 
-//select the first account
-WebUI.click(findTestObject('Object Repository/Transfer fund/From account list'))
-
-//open to account list
-WebUI.click(findTestObject('Object Repository/Transfer fund/To account list'))
- 
-//select the newly created account
-WebUI.click()
-
-//hit transfer button
-WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
+//verift that i am in the right screen
+WebUI.verifyElementPresent(findTestObject('Object Repository/Accounts Overview/Accounts Overview heading'), time)
 

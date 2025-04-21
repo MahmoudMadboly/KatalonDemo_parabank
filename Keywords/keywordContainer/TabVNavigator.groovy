@@ -21,12 +21,21 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 public class TabVNavigator {
-	
+
 	//this is a custom dynamic method to navigate to features
 	@Keyword
 	def navigateToFeature(TestObject testObject) {
-		
+
 		WebUI.click(testObject)
-		
+	}
+
+
+	@Keyword
+	//this method used to get & store some info to reuse it again
+	def storeInfo(TestObject TestObject) {
+
+		String newAccountNumber = WebUI.getText(TestObject)
+		GlobalVariable.CreatedAccountNumber
+		println(newAccountNumber)
 	}
 }
