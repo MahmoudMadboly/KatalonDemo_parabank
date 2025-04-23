@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Transfer fund button</name>
+   <name>Pay bill zip code</name>
    <tag></tag>
-   <elementGuidId>293eed17-d0de-4908-b79d-c92d735bb677</elementGuidId>
+   <elementGuidId>6588c6b9-872e-4b69-81b2-a7d18539a6d5</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//a [text() = 'Transfer Funds']</value>
+         <value>//*[@name = 'payee.address.zipCode']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -16,9 +16,9 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath</name>
+      <name>name</name>
       <type>Main</type>
-      <value>//a [text() = 'Transfer Funds']</value>
-      <webElementGuid>cb1144d2-07fc-4bbf-b986-f560f57ac38b</webElementGuid>
+      <value>payee.address.zipCode</value>
+      <webElementGuid>63685e24-b977-4d4b-a09b-5ce8d2f916a0</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

@@ -34,23 +34,34 @@ public class HelperKeywords {
 	//this method used to get & store some info to reuse it again
 	def storeInfo(TestObject TestObject) {
 
-		String newAccountNumber = WebUI.getText(TestObject)
-		GlobalVariable.CreatedAccountNumber
-		println(newAccountNumber)
+		String data = WebUI.getText(TestObject)
+		GlobalVariable.Data  = data
+		println(data)
 	}
-	
 	
 	@Keyword
 	//method to fetch test data
 	def getTestData(String sheetName , String coulumnName, int rowIndex) {
-		
+
 		//fetch data sheet
-		def dataSheet = findTestData(sheetName)
-		
-		//get test data
-		def testData = dataSheet.getValue(coulumnName, rowIndex)
-		
-		GlobalVariable.test_Data = testData
+		return findTestData(sheetName).getValue(coulumnName, rowIndex)
 		
 	}
+
+	
+	/*
+
+	@Keyword
+	//method to fetch test data
+	def getTestData(String sheetName , String coulumnName, int rowIndex) {
+
+		//fetch data sheet
+		def dataSheet = findTestData(sheetName)
+
+		//get test data
+		def testData = dataSheet.getValue(coulumnName, rowIndex)
+
+		GlobalVariable.test_Data = testData
+	}
+	*/
 }

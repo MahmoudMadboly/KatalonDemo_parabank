@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Transfer fund button</name>
+   <name>Find by Amount</name>
    <tag></tag>
-   <elementGuidId>293eed17-d0de-4908-b79d-c92d735bb677</elementGuidId>
+   <elementGuidId>ff2716d1-c960-44f2-b9e6-ddce5ff74ced</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//a [text() = 'Transfer Funds']</value>
+         <value>//*[@id = 'amount']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -16,9 +16,9 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath</name>
+      <name>id</name>
       <type>Main</type>
-      <value>//a [text() = 'Transfer Funds']</value>
-      <webElementGuid>cb1144d2-07fc-4bbf-b986-f560f57ac38b</webElementGuid>
+      <value>amount</value>
+      <webElementGuid>34793b69-f903-45ec-aa08-2b18fdeaf537</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

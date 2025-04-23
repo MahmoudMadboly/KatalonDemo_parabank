@@ -28,53 +28,55 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 
 WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "First Name", GlobalVariable.FirstRowNo)
+String firsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "First Name", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/First name'), GlobalVariable.test_Data)
+String lastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Last Name", GlobalVariable.FirstRowNo)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Last Name", GlobalVariable.FirstRowNo)
+String address = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Address", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/Last name'), GlobalVariable.test_Data)
+String City = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "City", GlobalVariable.FirstRowNo)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Address", GlobalVariable.FirstRowNo)
+String State = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "State", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/Adress'), GlobalVariable.test_Data)
+String Zip_Code = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Zip Code", GlobalVariable.FirstRowNo)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "City", GlobalVariable.FirstRowNo)
+String phone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Phone", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/City'), GlobalVariable.test_Data)
+String ssn = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "SSN", GlobalVariable.FirstRowNo)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "State", GlobalVariable.FirstRowNo)
+String userName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Username", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/State'), GlobalVariable.test_Data)
+GlobalVariable.CreatedUseName = userName
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Zip Code", GlobalVariable.FirstRowNo)
+String pass = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Password", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/Zip code'), GlobalVariable.test_Data)
+GlobalVariable.CreatedPassWord = pass
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Phone", GlobalVariable.FirstRowNo)
+String confirmPass = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Confirm", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/Phone'), GlobalVariable.test_Data)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "SSN", GlobalVariable.FirstRowNo)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/SSN'), GlobalVariable.test_Data)
+WebUI.sendKeys(findTestObject('Object Repository/Register/First name'), firsName)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Username", GlobalVariable.FirstRowNo)
+WebUI.sendKeys(findTestObject('Object Repository/Register/Last name'), lastName)
 
-GlobalVariable.CreatedUseName = GlobalVariable.test_Data
+WebUI.sendKeys(findTestObject('Object Repository/Register/Adress'), address)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/UserName'), GlobalVariable.test_Data)
+WebUI.sendKeys(findTestObject('Object Repository/Register/City'), City)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Password", GlobalVariable.FirstRowNo)
+WebUI.sendKeys(findTestObject('Object Repository/Register/State'), State)
 
-GlobalVariable.CreatedPassWord = GlobalVariable.test_Data
+WebUI.sendKeys(findTestObject('Object Repository/Register/Zip code'), Zip_Code)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/Password'), GlobalVariable.test_Data)
+WebUI.sendKeys(findTestObject('Object Repository/Register/Phone'), phone)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Confirm", GlobalVariable.FirstRowNo)
+WebUI.sendKeys(findTestObject('Object Repository/Register/SSN'), ssn)
 
-WebUI.sendKeys(findTestObject('Object Repository/Register/ConfirmPass'), GlobalVariable.test_Data)
+WebUI.sendKeys(findTestObject('Object Repository/Register/UserName'), userName)
+
+WebUI.sendKeys(findTestObject('Object Repository/Register/Password'), pass)
+
+WebUI.sendKeys(findTestObject('Object Repository/Register/ConfirmPass'), confirmPass)
 
 WebUI.click(findTestObject('Object Repository/Register/Save register'))
 
@@ -83,4 +85,3 @@ WebUI.waitForElementVisible(findTestObject('Object Repository/Register/Welcome m
 WebUI.verifyElementPresent(findTestObject('Object Repository/Register/Welcome message'), time)
 
 //WebUI.verifyElementText(findTestObject, confirm_passWord)
-

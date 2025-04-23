@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//select [@id = 'toAccountId']/option[1]</value>
+         <value>//select [@id = 'toAccountId']/option[2]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//select [@id = 'toAccountId']/option[1]</value>
-      <webElementGuid>73c21715-375e-4a74-a124-3853e911e8e6</webElementGuid>
+      <value>//select [@id = 'toAccountId']/option[2]</value>
+      <webElementGuid>c7c9d5ae-afcf-4985-a939-3a4e889b3f3d</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

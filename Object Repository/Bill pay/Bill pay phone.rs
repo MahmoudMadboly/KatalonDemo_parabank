@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Transfer fund button</name>
+   <name>Bill pay phone</name>
    <tag></tag>
-   <elementGuidId>293eed17-d0de-4908-b79d-c92d735bb677</elementGuidId>
+   <elementGuidId>70b432a5-eed1-4c3e-8234-96cff2296f92</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//a [text() = 'Transfer Funds']</value>
+         <value>//*[@name = 'payee.phoneNumber']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -16,9 +16,9 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath</name>
+      <name>name</name>
       <type>Main</type>
-      <value>//a [text() = 'Transfer Funds']</value>
-      <webElementGuid>cb1144d2-07fc-4bbf-b986-f560f57ac38b</webElementGuid>
+      <value>payee.phoneNumber</value>
+      <webElementGuid>527db922-8908-48b3-bf98-a4cea2f834df</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

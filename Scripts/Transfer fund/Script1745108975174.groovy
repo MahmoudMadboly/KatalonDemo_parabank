@@ -29,10 +29,10 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 //verify that i am in the right screen
 //WebUI.verifyElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund heading'), time)
 
-CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data","Transfer amount" , GlobalVariable.FirstRowNo)
+String transfer_Amount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data","Transfer amount" , GlobalVariable.FirstRowNo)
 
 //enter an amount to be transferred
-WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), GlobalVariable.test_Data)
+WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), transfer_Amount)
 
 //open from account list
 WebUI.click(findTestObject('Object Repository/Transfer fund/From account list'))
@@ -47,9 +47,11 @@ WebUI.click(findTestObject('Object Repository/Transfer fund/To account list'))
 WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_2'))
 
 //hit transfer button
-WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
+WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer button'))
 
 WebUI.waitForElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time)
+
+WebUI.delay(time)
 
 //verify the success message
 WebUI.verifyElementText(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), expected_success_message)

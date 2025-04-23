@@ -20,7 +20,6 @@ import org.openqa.selenium.Keys as Keys
 int time = 3
 
 
-String AccountCreatedSuccessfully = "Congratulations, your account is now open."
 
 //step1: will enter to open a new account screen
 CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Open new account/Open New account button'))
@@ -39,6 +38,9 @@ WebUI.click(findTestObject('Object Repository/Open new account/Save new account 
 
 //get & store the created account no.
 CustomKeywords.'keywordContainer.HelperKeywords.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
+
+//get success message value from test data sheet
+String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "Account Created Success Message", GlobalVariable.FirstRowNo)
 
 //step6: verify that the account created successfully
 WebUI.waitForElementPresent(findTestObject('Object Repository/Open new account/account added_success message'), time)

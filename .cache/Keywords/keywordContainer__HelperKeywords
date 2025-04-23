@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "7325E01A799559115365C4F9A2420299",
+  "keywordFileContentHash": "74CEDAFBF5F0C0D9687F2B6F28918584",
   "keywordClasses": [
     {
       "name": "keywordContainer.HelperKeywords",
@@ -20,7 +20,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "storeInfo",
@@ -38,7 +39,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "getTestData",
@@ -82,10 +84,11 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         }
       ]
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

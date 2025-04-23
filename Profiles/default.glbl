@@ -17,7 +17,7 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>CreatedAccountNumber</name>
+      <name>Data</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

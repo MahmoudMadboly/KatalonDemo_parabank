@@ -52,21 +52,11 @@ class NewTestListener {
 		WebUI.openBrowser('')
 		
 		//get test data
-		CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
-		
-		
-		/*
-		//load data sheet
-		def BrowserEndPoint = findTestData("General Data")
-		
-		//get test data
-		def url = BrowserEndPoint.getValue("End point", 1)
-		*/
-		
+		String URl = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
 		
 		println "Opening browser..."
 		
-		WebUI.navigateToUrl(GlobalVariable.test_Data)
+		WebUI.navigateToUrl(URl)
 		
 		WebUI.waitForPageLoad(time)
 		
