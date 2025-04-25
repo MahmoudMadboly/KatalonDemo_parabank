@@ -46,28 +46,27 @@ public class HelperKeywords {
 		//fetch data sheet
 		return findTestData(sheetName).getValue(coulumnName, rowIndex)
 	}
-	
-	
+
+
 	@Keyword
 	//method to find transaction with a specific criteria
-	def findTransactionWithSpecificCriteria(String sheetName , String columnName , int time , TestObject accountListObject , TestObject searchButton) {
-		
+	def findTransactionWithSpecificCriteria(String sheetName , String columnName , int rowIndex , TestObject accountListObject ,TestObject dateField ,TestObject searchButton) {
+
 		WebUI.click(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
-		
+
 		String createdAccountNumber = GlobalVariable.Data
-		
-		WebUI.selectOptionByValue(TestObject, createdAccountNumber, false)
-		
-		String input = getTestData(sheetName, columnName, time)
-		
+
+		WebUI.selectOptionByValue(accountListObject, createdAccountNumber, false)
+
+		String input = getTestData(sheetName, columnName, rowIndex)
+
 		println("Account Number: " + createdAccountNumber)
-		
+
 		println("Input is  " + input)
-		
-		WebUI.sendKeys(accountListObject, input)
-		
+
+		WebUI.sendKeys(dateField, input)
+
 		WebUI.click(searchButton)
-		
 	}
 
 

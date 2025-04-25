@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//h1 [text() = ' Find Transactions ']</value>
+         <value>//h1 [@class = 'title']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//h1 [text() = ' Find Transactions ']</value>
-      <webElementGuid>76b34839-77ce-46b2-a69b-d46d0ea52b6d</webElementGuid>
+      <value>//h1 [@class = 'title']</value>
+      <webElementGuid>1861c6e9-193a-4dd7-a4e0-897ba0cfe46d</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

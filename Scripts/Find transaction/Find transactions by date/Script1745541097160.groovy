@@ -22,8 +22,9 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 
 WebUI.verifyElementPresent(findTestObject('Object Repository/Find transaction/Find transaction heading'), time)
 
-CustomKeywords.'keywordContainer.HelperKeywords.findTransactionWithSpecificCriteria'("General Data", "Transaction date from", time,
+CustomKeywords.'keywordContainer.HelperKeywords.findTransactionWithSpecificCriteria'("General Data", "Transaction date from", 1,
 		findTestObject('Object Repository/Find transaction/Find transaction_AccountID'),
-		findTestObject('Object Repository/Find transaction/Find by Date'))
+		findTestObject('Object Repository/Find transaction/Find by Date'),
+		findTestObject('Object Repository/Find transaction/Find transaction button_findByDate'))
 
 
