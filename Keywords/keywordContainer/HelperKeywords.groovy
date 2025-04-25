@@ -22,7 +22,7 @@ import internal.GlobalVariable
 
 public class HelperKeywords {
 
-	//this is a custom dynamic method to navigate to features
+	//Navigate to a feature (UI element)
 	@Keyword
 	def navigateToFeature(TestObject testObject) {
 
@@ -31,37 +31,55 @@ public class HelperKeywords {
 
 
 	@Keyword
-	//this method used to get & store some info to reuse it again
+	//Store text info from a UI element into GlobalVariable
 	def storeInfo(TestObject TestObject) {
 
 		String data = WebUI.getText(TestObject)
 		GlobalVariable.Data  = data
-		println(data)
+		println("Storied data/ " + data)
 	}
-	
+
 	@Keyword
-	//method to fetch test data
+	//Fetch test data from Excel/Data Files
 	def getTestData(String sheetName , String coulumnName, int rowIndex) {
 
 		//fetch data sheet
 		return findTestData(sheetName).getValue(coulumnName, rowIndex)
+	}
+	
+	
+	@Keyword
+	//method to find transaction with a specific criteria
+	def findTransactionWithSpecificCriteria(String sheetName , String columnName , int time , TestObject accountListObject , TestObject searchButton) {
+		
+		WebUI.click(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
+		
+		String createdAccountNumber = GlobalVariable.Data
+		
+		WebUI.selectOptionByValue(TestObject, createdAccountNumber, false)
+		
+		String input = getTestData(sheetName, columnName, time)
+		
+		println("Account Number: " + createdAccountNumber)
+		
+		println("Input is  " + input)
+		
+		WebUI.sendKeys(accountListObject, input)
+		
+		WebUI.click(searchButton)
 		
 	}
 
-	
+
 	/*
-
-	@Keyword
-	//method to fetch test data
-	def getTestData(String sheetName , String coulumnName, int rowIndex) {
-
-		//fetch data sheet
-		def dataSheet = findTestData(sheetName)
-
-		//get test data
-		def testData = dataSheet.getValue(coulumnName, rowIndex)
-
-		GlobalVariable.test_Data = testData
-	}
-	*/
+	 @Keyword
+	 //method to fetch test data
+	 def getTestData(String sheetName , String coulumnName, int rowIndex) {
+	 //fetch data sheet
+	 def dataSheet = findTestData(sheetName)
+	 //get test data
+	 def testData = dataSheet.getValue(coulumnName, rowIndex)
+	 GlobalVariable.test_Data = testData
+	 }
+	 */
 }
