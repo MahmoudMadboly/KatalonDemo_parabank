@@ -3,6 +3,11 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+
+import java.beans.Customizer
+import java.sql.Date
+import java.text.SimpleDateFormat
+
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
@@ -22,9 +27,29 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 
 WebUI.verifyElementPresent(findTestObject('Object Repository/Find transaction/Find transaction heading'), time)
 
-CustomKeywords.'keywordContainer.HelperKeywords.findTransactionWithSpecificCriteria'("General Data", "Transaction date from", 1,
-		findTestObject('Object Repository/Find transaction/Find transaction_AccountID'),
-		findTestObject('Object Repository/Find transaction/Find by Date'),
-		findTestObject('Object Repository/Find transaction/Find transaction button_findByDate'))
+//select the right acount id
+CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
+
+//fetch the related test data
+String fetchedData = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "Transaction date from", GlobalVariable.FirstRowNo)
 
 
+//verify the fetched data
+if(fetchedData == null) {
+	
+	throw new RuntimeException("Failed to get test data from Excel")
+	
+}
+
+//check test data if date format or normal string format
+String finalData = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData)
+
+// Verify processed data
+if (finalData == null) {
+	
+	throw new RuntimeException("Failed to process test data")
+	
+}
+
+//enter test data in test field
+WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date'), finalData)
