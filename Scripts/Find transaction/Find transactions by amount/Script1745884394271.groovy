@@ -22,6 +22,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+
 int time = 5
 CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'))
 
@@ -31,30 +32,33 @@ WebUI.verifyElementPresent(findTestObject('Object Repository/Find transaction/Fi
 CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
 
 //fetch the related test data
-String fetchedData = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date from", GlobalVariable.FirstRowNo)
+String fetchedAmount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transfer amount", GlobalVariable.FirstRowNo)
 
 
 //verify the fetched data
-if(fetchedData == null) {
+if(fetchedAmount == null) {
 	
 	throw new RuntimeException("Failed to get test data from Excel")
 	
 }
 
+
 //check test data if date format or normal string format
-String finalData = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData)
+String finalAmount = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedAmount)
+
 
 // Verify processed data
-if (finalData == null) {
+if (finalAmount == null) {
 	
 	throw new RuntimeException("Failed to process test data")
 	
 }
 
+
 //enter test data in test field
-WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date'), finalData)
+WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find transaction button_findByAmount'), finalAmount)
 
 
 //verify transaction result displayed successfully
-CustomKeywords.'keywordContainer.HelperKeywords.verifyFindTransactionScnario'(findTestObject('Object Repository/Find transaction/Transaction result heading'),
+CustomKeywords.'keywordContainer.HelperKeywords.verifyFindTransactionScnario'(findTestObject('Object Repository/Find transaction/Transaction result heading'), 
 	"Find transaction", "Transtion result text", GlobalVariable.FirstRowNo)

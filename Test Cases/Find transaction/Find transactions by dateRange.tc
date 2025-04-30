@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Find transactions by dateRange</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5b865769-41c1-48fa-93d5-5174c3b12ecd</testCaseGuid>
+</TestCaseEntity>

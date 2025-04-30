@@ -19,31 +19,45 @@
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>52134843-2bd4-411a-81eb-d11d18e09b0c</guid>
+      <guid>c3b0926c-ad06-4c54-8961-1e88af81f4bd</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/Open new account</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>76b1c806-4548-4861-aa02-bf29593a3c80</guid>
+      <guid>fccbbfb3-bcca-461b-961e-93d5d14439f0</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Find transaction/Find transactions by date</testCaseId>
+      <testCaseId>Test Cases/Bill payment</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>741659ed-1822-4bba-b6d1-b94cc2a3fb17</guid>
+      <guid>25fbf8d4-be90-4021-a170-ff0ad8d64921</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/Transfer fund</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>74b1cf7d-b428-4b8a-afbe-b3136f99f3bc</guid>
+      <guid>fd172f6d-0eaf-4124-bf87-6a6f7390ad53</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Bill payment</testCaseId>
+      <testCaseId>Test Cases/Find transaction/Find transactions by amount</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>fcc2b968-1cce-4bc8-bbbc-99ae13a03f0c</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Find transaction/Find transactions by date</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>a4064a25-5ef3-4c12-86a9-3deb3db73836</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Find transaction/Find transactions by dateRange</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

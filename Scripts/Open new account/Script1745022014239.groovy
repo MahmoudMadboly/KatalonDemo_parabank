@@ -40,7 +40,7 @@ WebUI.click(findTestObject('Object Repository/Open new account/Save new account 
 CustomKeywords.'keywordContainer.HelperKeywords.storeInfo'(findTestObject('Object Repository/Open new account/newly created account number'))
 
 //get success message value from test data sheet
-String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "Account Created Success Message", GlobalVariable.FirstRowNo)
+String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Open new account", "Account created success message", GlobalVariable.FirstRowNo)
 
 //step6: verify that the account created successfully
 WebUI.waitForElementPresent(findTestObject('Object Repository/Open new account/account added_success message'), time)

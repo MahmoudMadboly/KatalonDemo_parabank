@@ -22,6 +22,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+
 int time = 5
 CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Find transaction/Find Transactions button'))
 
@@ -31,28 +32,47 @@ WebUI.verifyElementPresent(findTestObject('Object Repository/Find transaction/Fi
 CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Find transaction/Find transaction_AccountID'))
 
 //fetch the related test data
-String fetchedData = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date from", GlobalVariable.FirstRowNo)
+String fetchedData_dateFrom = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date from", GlobalVariable.FirstRowNo)
 
 
 //verify the fetched data
-if(fetchedData == null) {
+if(fetchedData_dateFrom == null) {
+	
+	throw new RuntimeException("Failed to get test data from Excel")
+	
+}
+
+String fetchedData_dateTo = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transaction date to", GlobalVariable.FirstRowNo)
+
+//verify the fetched data
+if(fetchedData_dateTo == null) {
 	
 	throw new RuntimeException("Failed to get test data from Excel")
 	
 }
 
 //check test data if date format or normal string format
-String finalData = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData)
+String finalData_dateFrom = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData_dateFrom)
+
+String finalData_dateTo = CustomKeywords.'keywordContainer.HelperKeywords.checkDataIfDate'(fetchedData_dateTo)
 
 // Verify processed data
-if (finalData == null) {
+if (finalData_dateFrom == null) {
+	
+	throw new RuntimeException("Failed to process test data")
+	
+}
+
+if (finalData_dateTo == null) {
 	
 	throw new RuntimeException("Failed to process test data")
 	
 }
 
 //enter test data in test field
-WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date'), finalData)
+WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_fromDate'), finalData_dateFrom)
+
+WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_toDate'), finalData_dateTo)
 
 
 //verify transaction result displayed successfully
