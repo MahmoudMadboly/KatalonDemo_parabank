@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "keywordFileContentHash": "C456BFDBBDF0347256FDFC6B7BC92F16",
+=======
+  "keywordFileContentHash": "CC1665558A7072870F89D02F947849ED",
+>>>>>>> dev
   "keywordClasses": [
     {
       "name": "keywordContainer.HelperKeywords",
