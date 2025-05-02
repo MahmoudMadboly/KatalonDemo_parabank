@@ -81,10 +81,14 @@ public class HelperKeywords {
 		try {
 			if (excelData.contains("/") || excelData.contains("-")) {
 				def possibleFormats = [
-					"M/d/yyyy", "MM/dd/yyyy",
-					"d/M/yyyy", "dd/MM/yyyy",
-					"M-d-yyyy", "MM-dd-yyyy",
-					"d-M-yyyy", "dd-MM-yyyy"
+					"M/d/yyyy",
+					"MM/dd/yyyy",
+					"d/M/yyyy",
+					"dd/MM/yyyy",
+					"M-d-yyyy",
+					"MM-dd-yyyy",
+					"d-M-yyyy",
+					"dd-MM-yyyy"
 				]
 
 				for (String format : possibleFormats) {
