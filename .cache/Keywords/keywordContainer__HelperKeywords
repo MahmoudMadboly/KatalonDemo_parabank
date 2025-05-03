@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "C456BFDBBDF0347256FDFC6B7BC92F16",
+  "keywordFileContentHash": "B603BC9243A617FE20D0D3C1B17A565C",
   "keywordClasses": [
     {
       "name": "keywordContainer.HelperKeywords",
@@ -172,6 +172,43 @@
                 "isGnericsPlaceHolder": false,
                 "hasImmutableClassName": true,
                 "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "updateProfileInfo",
+          "parameters": [
+            {
+              "name": "profileData",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.util.Map",
+                "unresolvedClassName": "Map",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [
+                  {
+                    "fullClassName": "java.lang.String",
+                    "unresolvedClassName": "String",
+                    "isArray": false,
+                    "isGnericsPlaceHolder": false,
+                    "hasImmutableClassName": false,
+                    "genericsTypes": [],
+                    "errorOnParsing": false
+                  },
+                  {
+                    "fullClassName": "java.lang.String",
+                    "unresolvedClassName": "String",
+                    "isArray": false,
+                    "isGnericsPlaceHolder": false,
+                    "hasImmutableClassName": false,
+                    "genericsTypes": [],
+                    "errorOnParsing": false
+                  }
+                ],
                 "errorOnParsing": false
               }
             }

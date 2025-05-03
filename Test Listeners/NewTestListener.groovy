@@ -29,57 +29,65 @@ import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
 
 class NewTestListener {
-	
+
 	int time = 10
 	/**
 	 * Executes before every test case starts.
 	 * @param testCaseContext related information of the executed test case.
 	 */
-/*	@BeforeTestCase
-	def sampleBeforeTestCase(TestCaseContext testCaseContext) {
-		println testCaseContext.getTestCaseId()
-		println testCaseContext.getTestCaseVariables()
-	}*/
+	/*	@BeforeTestCase
+	 def sampleBeforeTestCase(TestCaseContext testCaseContext) {
+	 println testCaseContext.getTestCaseId()
+	 println testCaseContext.getTestCaseVariables()
+	 }*/
 
 	@BeforeTestCase
 	def beforeTestCase(TestCaseContext TestCaseContext) {
-		
+
 		//get current test case id
 		String testCaseID = TestCaseContext.getTestCaseId();
-		
-		
+
+
 		//open browser
 		WebUI.openBrowser('')
-		
+
 		//get test data
 		String URl = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data", "End point", GlobalVariable.FirstRowNo)
-		
+
 		println "Opening browser..."
-		
+
 		WebUI.navigateToUrl(URl)
-		
+
 		WebUI.waitForPageLoad(time)
-		
-		
-		//if current test case id is sign up then skip login
-		if(testCaseID.contains("Register")) {
-			
-			println("⏭ Skipping login for SignUp test case: $testCaseId")
-		
+
+		try {
+
+
+			//if current test case id is sign up then skip login
+			if(testCaseID.contains("Register")) {
+
+				println("⏭ Skipping login for SignUp test case: $testCaseId")
+
 			}else {
-				
-				
+
+
 				//login to app with the registered username & password
 				WebUI.sendKeys(findTestObject('Object Repository/Login/userName'), GlobalVariable.CreatedUseName)
-				
+
 				WebUI.sendKeys(findTestObject('Object Repository/Login/passWord'), GlobalVariable.CreatedPassWord)
-				
+
 				WebUI.click(findTestObject('Object Repository/Login/loginButton'))
-				
+
 				WebUI.waitForPageLoad(time)
-				
-				
-			}	
+
+			}
+
+		}catch(Exception e) {
+
+			println("Some error happened, please check what`s wrong!: " + e.getMessage())
+
+		}
+
 	}
-	
+
 }

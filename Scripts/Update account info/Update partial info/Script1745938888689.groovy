@@ -14,6 +14,25 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import internal.GlobalVariable
+import keywordContainer.HelperKeywords
+
 import org.openqa.selenium.Keys as Keys
 
+int time = 5
+
+CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'))
+
+WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
+
+String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "First Name", GlobalVariable.SecondRowNo)
+
+String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Last Name", GlobalVariable.SecondRowNo)
+
+// Add only the fields you want to update
+Map<String, String> partialUpdate = [
+	firstName: newFirsName,
+	lastName: newLastName
+]
+
+CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate)

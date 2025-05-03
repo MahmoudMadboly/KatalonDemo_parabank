@@ -6,8 +6,8 @@
    <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
-   <dataFileGUID>4e79cf4f-0311-4e58-8534-25314211b187</dataFileGUID>
-   <dataSourceUrl>D:\Automation repo\Katalon_Project\KatalonDemo\Data Files\Test data.xlsx</dataSourceUrl>
+   <dataFileGUID>876c7b5c-b24b-43d3-8619-bc48b9b3d87a</dataFileGUID>
+   <dataSourceUrl>D:\Automation repo\KatalonDemo_parabank\Data Files\Test data.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>

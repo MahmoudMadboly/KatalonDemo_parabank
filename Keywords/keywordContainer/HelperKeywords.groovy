@@ -29,7 +29,7 @@ import org.apache.poi.ss.usermodel.*
 import org.apache.poi.ss.usermodel.DateUtil
 
 public class HelperKeywords {
-	
+
 	String firstName
 	String lastName
 	String address
@@ -37,17 +37,8 @@ public class HelperKeywords {
 	String state
 	String zipCode
 	String phone
-	
-	HelperKeywords(String firstName,String lastName,String address,String city,String state,String zipCode,String phone){
-		
-		this.firstName = firstName
-		this.lastName = lastName
-		this.address = address
-		this.city = city
-		this.state = state
-		this.zipCode = zipCode
-		this.phone = phone
-	}
+
+
 
 	//Navigate to a feature (UI element)
 	@Keyword
@@ -141,5 +132,28 @@ public class HelperKeywords {
 
 		//verify transaction result displayed successfully
 		WebUI.verifyElementText(object, transactionResultText)
+	}
+
+
+	//check fields should be updated & update them either partially or fully
+	@Keyword
+	def updateProfileInfo(Map<String, String> profileData) {
+		Map<String, String> fields = [
+			"First name": profileData.get("firstName"),
+			"Last name": profileData.get("lastName"),
+			"Adress": profileData.get("address"),
+			"City": profileData.get("city"),
+			"State": profileData.get("state"),
+			"Zip code": profileData.get("zipCode"),
+			"Phone": profileData.get("phone")
+		]
+
+		fields.each { fieldName, fieldValue ->
+			if (fieldValue) {
+				TestObject fieldObject = findTestObject("Register/" + fieldName)
+				WebUI.clearText(fieldObject)
+				WebUI.setText(fieldObject, fieldValue)
+			}
+		}
 	}
 }
