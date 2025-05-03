@@ -13,6 +13,7 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.webui.keyword.internal.WebUIAbstractKeyword
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 import keywordContainer.HelperKeywords
@@ -25,9 +26,11 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 
 WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
 
-String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "First Name", GlobalVariable.SecondRowNo)
+String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.FirstRowNo)
 
-String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Last Name", GlobalVariable.SecondRowNo)
+String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.FirstRowNo)
+
+String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 
 // Add only the fields you want to update
 Map<String, String> partialUpdate = [
@@ -36,3 +39,9 @@ Map<String, String> partialUpdate = [
 ]
 
 CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate)
+
+WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
+
+WebUI.waitForElementVisible(findTestObject('Object Repository/Update profile info/Update info_success message'), time)
+
+WebUI.verifyElementText(findTestObject('Object Repository/Update profile info/Update info_success message'), successMessage)

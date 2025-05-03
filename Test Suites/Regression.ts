@@ -19,7 +19,14 @@
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>65af3847-1b0b-4fef-8753-79c72fd5d8bb</guid>
+      <guid>846fdce4-dbe5-43a8-9eec-747dd801dd3e</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Update account info/Update all info</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>ccd065c5-c348-41cf-ab18-1956b1c94785</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/Update account info/Update partial info</testCaseId>

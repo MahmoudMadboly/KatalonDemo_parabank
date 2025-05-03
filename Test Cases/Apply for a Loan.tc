@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Apply for a Loan</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>44448fe1-df7a-4a70-a6dc-b7dc4de42967</testCaseGuid>
+</TestCaseEntity>
