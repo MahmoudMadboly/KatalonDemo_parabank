@@ -74,7 +74,7 @@ WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date R
 
 WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find by Date Range_toDate'), finalData_dateTo)
 
+String scnarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
 
 //verify transaction result displayed successfully
-CustomKeywords.'keywordContainer.HelperKeywords.verifyFindTransactionScnario'(findTestObject('Object Repository/Find transaction/Transaction result heading'),
-	"Find transaction", "Transtion result text", GlobalVariable.FirstRowNo)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)

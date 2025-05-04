@@ -68,7 +68,4 @@ WebUI.sendKeys(findTestObject('Object Repository/Bill pay/Bill pay amount'), amo
 
 WebUI.click(findTestObject('Object Repository/Bill pay/Send payment'))
 
-WebUI.waitForElementPresent(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), PayBillSuccessMeaage)
-
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, PayBillSuccessMeaage)

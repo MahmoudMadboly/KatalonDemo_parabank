@@ -17,3 +17,27 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+
+int time = 5
+
+CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Apply for a Loan/Apply for a Loan button'))
+
+WebUI.waitForElementPresent(findTestObject('Object Repository/Apply for a Loan/Apply for a loan heading'), time)
+
+String loanAmount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Apply for a Loan", "Loan amount", GlobalVariable.FirstRowNo)
+
+String downPayment = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Apply for a Loan", "Down payment", GlobalVariable.FirstRowNo)
+
+ String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Apply for a Loan", "Apply for load_Success message", GlobalVariable.FirstRowNo)
+
+
+
+WebUI.sendKeys(findTestObject('Object Repository/Apply for a Loan/Loan Amount'), loanAmount)
+
+WebUI.sendKeys(findTestObject('Object Repository/Apply for a Loan/Down Payment'), downPayment)
+
+CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransactions'(findTestObject('Object Repository/Apply for a Loan/Request loan_accounts list'))
+
+WebUI.click(findTestObject('Object Repository/Apply for a Loan/Request button_Apply now button'))
+
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Apply for a Loan/Loan Request Processed heading'), time, successMessage)

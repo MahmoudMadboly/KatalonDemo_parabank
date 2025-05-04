@@ -34,6 +34,8 @@ CustomKeywords.'keywordContainer.HelperKeywords.selectAcountIdBeforeFindTransact
 //fetch the related test data
 String fetchedAmount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Transfer amount", GlobalVariable.FirstRowNo)
 
+String scnarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Find transaction", "Account Created Success Message", GlobalVariable.FirstRowNo)
+
 
 //verify the fetched data
 if(fetchedAmount == null) {
@@ -58,7 +60,5 @@ if (finalAmount == null) {
 //enter test data in test field
 WebUI.sendKeys(findTestObject('Object Repository/Find transaction/Find transaction button_findByAmount'), finalAmount)
 
-
 //verify transaction result displayed successfully
-CustomKeywords.'keywordContainer.HelperKeywords.verifyFindTransactionScnario'(findTestObject('Object Repository/Find transaction/Transaction result heading'), 
-	"Find transaction", "Transtion result text", GlobalVariable.FirstRowNo)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Bill pay/Bill Payment_success message'), time, scnarioSuccessMessage)

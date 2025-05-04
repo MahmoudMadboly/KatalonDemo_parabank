@@ -54,6 +54,7 @@ GlobalVariable.CreatedPassWord = pass
 
 String confirmPass = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Confirm", GlobalVariable.FirstRowNo)
 
+String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Sign up_Success message", GlobalVariable.FirstRowNo)
 
 
 WebUI.sendKeys(findTestObject('Object Repository/Register/First name'), firsName)
@@ -80,8 +81,4 @@ WebUI.sendKeys(findTestObject('Object Repository/Register/ConfirmPass'), confirm
 
 WebUI.click(findTestObject('Object Repository/Register/Save register'))
 
-WebUI.waitForElementVisible(findTestObject('Object Repository/Register/Welcome message'), time)
-
-WebUI.verifyElementPresent(findTestObject('Object Repository/Register/Welcome message'), time)
-
-//WebUI.verifyElementText(findTestObject, confirm_passWord)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Register/Welcome message'), time, scenarioSuccessMessage)

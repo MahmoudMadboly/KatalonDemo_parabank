@@ -21,7 +21,6 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 int time = 5
-String expected_success_message = "Transfer Complete!"
 
 //step1: will enter to open transfer fund screen
 CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Transfer fund/Transfer fund button'))
@@ -29,7 +28,9 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 //verify that i am in the right screen
 //WebUI.verifyElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund heading'), time)
 
-String transfer_Amount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("General Data","Transfer amount" , GlobalVariable.FirstRowNo)
+String transfer_Amount = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Transfer fund","Transfer amount" , GlobalVariable.FirstRowNo)
+
+String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Transfer fund","Transfer fund_success message" , GlobalVariable.FirstRowNo)
 
 //enter an amount to be transferred
 WebUI.sendKeys(findTestObject('Object Repository/Transfer fund/Fund amount'), transfer_Amount)
@@ -49,10 +50,4 @@ WebUI.click(findTestObject('Object Repository/Transfer fund/Account option_2'))
 //hit transfer button
 WebUI.click(findTestObject('Object Repository/Transfer fund/Transfer button'))
 
-WebUI.waitForElementPresent(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time)
-
-WebUI.delay(time)
-
-//verify the success message
-WebUI.verifyElementText(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), expected_success_message)
-
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Transfer fund/Transfer fund_Success message'), time, scenarioSuccessMessage)

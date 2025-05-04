@@ -122,18 +122,17 @@ public class HelperKeywords {
 		}
 	}
 
-	@Keyword
-	//verify find transaction scenario successfully done
-	def verifyFindTransactionScnario(TestObject object,String sheetName , String coulumnName, int rowIndex) {
 
-		//get transaction result text fron test data sheet
-		String transactionResultText = getTestData(sheetName, coulumnName, rowIndex)
-
-
-		//verify transaction result displayed successfully
-		WebUI.verifyElementText(object, transactionResultText)
-	}
-
+	/*
+	 @Keyword
+	 //verify find transaction scenario successfully done
+	 def verifyFindTransactionScnario(TestObject object,String sheetName , String coulumnName, int rowIndex) {
+	 //get transaction result text fron test data sheet
+	 String transactionResultText = getTestData(sheetName, coulumnName, rowIndex)
+	 //verify transaction result displayed successfully
+	 WebUI.verifyElementText(object, transactionResultText)
+	 }
+	 */
 
 	//check fields should be updated & update them either partially or fully
 	@Keyword
@@ -155,5 +154,15 @@ public class HelperKeywords {
 				WebUI.setText(fieldObject, fieldValue)
 			}
 		}
+	}
+
+
+	//verify that test case is passed
+	@Keyword
+	def validateTestCaseIsPassed(TestObject testobject , int time , String successMessage) {
+
+		WebUI.waitForElementVisible(testobject, time)
+
+		WebUI.verifyElementText(testobject, successMessage)
 	}
 }

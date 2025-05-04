@@ -42,6 +42,4 @@ CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate
 
 WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
 
-WebUI.waitForElementVisible(findTestObject('Object Repository/Update profile info/Update info_success message'), time)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Update profile info/Update info_success message'), successMessage)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)

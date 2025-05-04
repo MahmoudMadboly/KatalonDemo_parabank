@@ -43,6 +43,4 @@ CustomKeywords.'keywordContainer.HelperKeywords.storeInfo'(findTestObject('Objec
 String AccountCreatedSuccessfully = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Open new account", "Account created success message", GlobalVariable.FirstRowNo)
 
 //step6: verify that the account created successfully
-WebUI.waitForElementPresent(findTestObject('Object Repository/Open new account/account added_success message'), time)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Open new account/account added_success message'), AccountCreatedSuccessfully)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Open new account/account added_success message'), time, AccountCreatedSuccessfully)

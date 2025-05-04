@@ -38,7 +38,7 @@ String newZipCode = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'
 
 String newPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
 
-String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
+String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 
 // Add only the fields you want to update
 Map<String, String> partialUpdate = [
@@ -55,6 +55,4 @@ CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate
 
 WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
 
-WebUI.waitForElementVisible(findTestObject('Object Repository/Update profile info/Update info_success message'), time)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Update profile info/Update info_success message'), successMessage)
+CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
