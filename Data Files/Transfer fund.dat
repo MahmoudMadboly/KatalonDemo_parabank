@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataFileEntity>
    <description></description>
-   <name>Find transaction</name>
+   <name>Transfer fund</name>
    <tag></tag>
    <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
-   <dataFileGUID>1c884018-2695-4ce4-8206-0d11c99afe2c</dataFileGUID>
+   <dataFileGUID>b3da4347-560d-4e86-bec3-71f6f0e9cc1e</dataFileGUID>
    <dataSourceUrl>D:\Automation repo\KatalonDemo_parabank\Data Files\Test data.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>Find transaction</sheetName>
+   <sheetName>Transfer fund</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>
