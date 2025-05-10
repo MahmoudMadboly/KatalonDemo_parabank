@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//ul[3]</value>
+         <value>(//ul[@class='leftmenu'])[2]/li/a</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//ul[3]</value>
-      <webElementGuid>f9e95684-b29f-4b31-bd00-013243d0ece5</webElementGuid>
+      <value>(//ul[@class='leftmenu'])[2]/li/a</value>
+      <webElementGuid>78ebd5f3-5cff-4b01-b430-66fb0ef14010</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "6EE6CAF8CB02B1145A70F53B175C89B8",
+  "keywordFileContentHash": "ABD77C8D3CF9F7D438DB4992BA6DA03D",
   "keywordClasses": [
     {
       "name": "keywordContainer.HelperKeywords",
@@ -46,7 +46,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "storeInfo",
@@ -64,7 +65,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "getTestData",
@@ -108,7 +110,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "selectAcountIdBeforeFindTransactions",
@@ -126,7 +129,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "checkDataIfDate",
@@ -144,7 +148,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "updateProfileInfo",
@@ -181,7 +186,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "validateTestCaseIsPassed",
@@ -225,7 +231,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         },
         {
           "name": "loopInsideList",
@@ -256,10 +263,11 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         }
       ]
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

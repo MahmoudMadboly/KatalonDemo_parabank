@@ -18,6 +18,7 @@ import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.ExcelData
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
@@ -49,7 +50,6 @@ public class HelperKeywords {
 		WebUI.click(targetObject)
 
 		WebUI.waitForElementPresent(validatedObject, rowNo)
-
 	}
 
 
@@ -177,13 +177,17 @@ public class HelperKeywords {
 	def loopInsideList(TestObject object , int time) {
 
 		List<WebElement> solutionList = WebUiCommonHelper.findWebElements(object, time)
+		
+		List<String> result = []
 
 		for(WebElement item : solutionList) {
-
-			println("the list contians following lists: " + item.getText())
 			
-			return item.getText()
+			String text = item.getText()
+			
+			result.add(text)
 
 		}
+		
+		return result.toArray(new String[0])
 	}
 }

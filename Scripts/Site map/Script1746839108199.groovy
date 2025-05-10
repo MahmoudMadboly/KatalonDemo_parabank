@@ -10,7 +10,8 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
-import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
@@ -25,6 +26,20 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 		)
 
 		//check if you can get array here
-solutionList[] =  CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Solutions list'), time)
+String [] solutionList =  CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Solutions list'), time)
 
-CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Account Services list'), time)
+if(solutionList.length == 0) {
+	
+	println("The solutionList is empty.")
+	
+}else {
+	
+	println("The solutionList contains: " + Arrays.toString(solutionList))
+	
+}
+
+String [] accountServicesList =  CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Account Services list'), time)
+
+
+//String [] expectedProdusctList = ["About Us","Services","Products","Locations","Admin Page"]
+
