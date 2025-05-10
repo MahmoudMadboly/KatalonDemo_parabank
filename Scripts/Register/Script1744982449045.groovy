@@ -23,10 +23,7 @@ import org.testng.Assert as Keys
 
 int time = 5
 
-
-CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Register/Register button'))
-
-WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
+CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Register/Register button'), findTestObject('Object Repository/Register/Sign up heading'), time)
 
 String firsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "First Name", GlobalVariable.FirstRowNo)
 

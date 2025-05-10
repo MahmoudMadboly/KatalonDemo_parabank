@@ -19,6 +19,7 @@ import com.kms.katalon.core.testdata.ExcelData
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
@@ -27,6 +28,7 @@ import internal.GlobalVariable
 import javassist.bytecode.stackmap.BasicBlock.Catch
 import org.apache.poi.ss.usermodel.*
 import org.apache.poi.ss.usermodel.DateUtil
+import org.openqa.selenium.WebElement
 
 public class HelperKeywords {
 
@@ -42,9 +44,12 @@ public class HelperKeywords {
 
 	//Navigate to a feature (UI element)
 	@Keyword
-	def navigateToFeature(TestObject testObject) {
+	def navigateToFeature(TestObject targetObject, TestObject validatedObject , int rowNo) {
 
-		WebUI.click(testObject)
+		WebUI.click(targetObject)
+
+		WebUI.waitForElementPresent(validatedObject, rowNo)
+
 	}
 
 
@@ -164,5 +169,21 @@ public class HelperKeywords {
 		WebUI.waitForElementVisible(testobject, time)
 
 		WebUI.verifyElementText(testobject, successMessage)
+	}
+
+
+	//loop inside list
+	@Keyword
+	def loopInsideList(TestObject object , int time) {
+
+		List<WebElement> solutionList = WebUiCommonHelper.findWebElements(object, time)
+
+		for(WebElement item : solutionList) {
+
+			println("the list contians following lists: " + item.getText())
+			
+			return item.getText()
+
+		}
 	}
 }

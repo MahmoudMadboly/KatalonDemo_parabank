@@ -25,24 +25,27 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 
 WebUI.waitForElementPresent(findTestObject('Object Repository/Customer care/Customer care heading'), GlobalVariable.FirstRowNo)
 
-String customeName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo)
+String customerName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer name", GlobalVariable.FirstRowNo)
 
-String customeEmail = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo)
+String customerEmail = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer email", GlobalVariable.FirstRowNo)
 
-String customePhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo)
+String customerPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer phone", GlobalVariable.FirstRowNo)
 
-String message = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo)
+String message = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Message", GlobalVariable.FirstRowNo)
 
-String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo) + CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("", "", GlobalVariable.FirstRowNo)
+String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
+// + CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Username", GlobalVariable.FirstRowNo)
 
 println("expected message is" + successMessage)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customeName)
+WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customerName)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer email'), customeName)
+WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer email'), customerEmail)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer phone'), customeName)
+WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer phone'), customerPhone)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Message'), customeName)
+WebUI.sendKeys(findTestObject('Object Repository/Customer care/Message'), message)
+
+WebUI.click(findTestObject('Object Repository/Customer care/Send to customer care button'))
 
 CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
