@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Account Services list</name>
+   <name>Location site header</name>
    <tag></tag>
-   <elementGuidId>f5675245-495a-448c-8102-c31e829bf836</elementGuidId>
+   <elementGuidId>0e7a65ee-8c3c-4b85-8983-52afaf1b72cd</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>(//div[@id='rightPanel']//ul)[2]/li</value>
+         <value>//h2 [text() = 'Deliver High-Quality &amp; Secure Software']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>(//div[@id='rightPanel']//ul)[2]/li</value>
-      <webElementGuid>f8cea2c0-bc77-483d-8449-e987c9e47b72</webElementGuid>
+      <value>//h2 [text() = 'Deliver High-Quality &amp; Secure Software']</value>
+      <webElementGuid>4ba43060-5d26-4c36-b686-f47c8305c50e</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

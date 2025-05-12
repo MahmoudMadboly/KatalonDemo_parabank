@@ -5,6 +5,7 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import static org.junit.Assert.assertArrayEquals
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,6 +31,7 @@ import javassist.bytecode.stackmap.BasicBlock.Catch
 import org.apache.poi.ss.usermodel.*
 import org.apache.poi.ss.usermodel.DateUtil
 import org.openqa.selenium.WebElement
+import org.testng.Assert
 
 public class HelperKeywords {
 
@@ -40,6 +42,7 @@ public class HelperKeywords {
 	String state
 	String zipCode
 	String phone
+	int time
 
 
 
@@ -177,17 +180,59 @@ public class HelperKeywords {
 	def loopInsideList(TestObject object , int time) {
 
 		List<WebElement> solutionList = WebUiCommonHelper.findWebElements(object, time)
-		
+
 		List<String> result = []
 
 		for(WebElement item : solutionList) {
-			
+
 			String text = item.getText()
-			
+
 			result.add(text)
+		}
+
+		return result.toArray(new String[0])
+	}
+
+
+	//check site map screen content
+	@Keyword
+	def checkSiteMapScreenContent(TestObject listObject , String [] expectedList , int time) {
+
+		String[] actualList = loopInsideList(listObject, time)
+
+		if(actualList.length == 0) {
+
+			println("The actual list is empty.")
+
+		}else {
+
+			println("The actual list contains: " + Arrays.toString(actualList))
 
 		}
+
+		Assert.assertEquals(actualList, expectedList)
+
+	}
+	
+	
+	//redirect to another portal & check the redirected link
+	@Keyword
+	def verifyPortalRedirectionAndHeader(TestObject hyperLinkObject, int time, String URLsheetName , String URLcoulumnName, int URlrowIndex,String headerSheetName,String headerCoulmnName,int headerRowIndex,TestObject headerObject) {
 		
-		return result.toArray(new String[0])
+		WebUI.click(hyperLinkObject)
+		
+		WebUI.delay(time)
+		
+		String actualURL = WebUI.getUrl()
+		
+		println("the actual url is/ " + actualURL)
+		
+		String expedtedURL = getTestData(URLsheetName, URLcoulumnName, URlrowIndex)
+		
+		Assert.assertEquals(actualURL, expedtedURL)
+		
+		String homePageHeader = getTestData(headerSheetName, headerCoulmnName, headerRowIndex)
+		
+		WebUI.verifyElementText(headerObject, homePageHeader)
 	}
 }

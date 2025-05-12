@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Account Services list</name>
+   <name>Products site header</name>
    <tag></tag>
-   <elementGuidId>f5675245-495a-448c-8102-c31e829bf836</elementGuidId>
+   <elementGuidId>1ed10fea-4b42-4c84-ba38-3e7af5bec251</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>(//div[@id='rightPanel']//ul)[2]/li</value>
+         <value>//p [text() = 'Products']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +18,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>(//div[@id='rightPanel']//ul)[2]/li</value>
-      <webElementGuid>f8cea2c0-bc77-483d-8449-e987c9e47b72</webElementGuid>
+      <value>//p [text() = 'Products']</value>
+      <webElementGuid>cd6fd9af-34a1-48a1-b19b-ca79d9698dff</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

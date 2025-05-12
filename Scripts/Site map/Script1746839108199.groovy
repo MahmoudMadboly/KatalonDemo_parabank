@@ -16,7 +16,9 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.Keys
+import org.testng.Assert
+import org.testng.Assert as Keys
 
 
 int time = 5
@@ -25,21 +27,11 @@ CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObjec
 		,findTestObject('Object Repository/Map site/Header'),time
 		)
 
-		//check if you can get array here
-String [] solutionList =  CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Solutions list'), time)
+String [] expectedProdusctList = ["About Us","Services","Products","Locations","Admin Page"]
 
-if(solutionList.length == 0) {
-	
-	println("The solutionList is empty.")
-	
-}else {
-	
-	println("The solutionList contains: " + Arrays.toString(solutionList))
-	
-}
+String [] expectedAccountServicesList = ["Open New Account","Accounts Overview","Transfer Funds","Bill Pay","Find Transactions","Update Contact Info","Request Loan","Log Out"]
 
-String [] accountServicesList =  CustomKeywords.'keywordContainer.HelperKeywords.loopInsideList'(findTestObject('Object Repository/Map site/Account Services list'), time)
+CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Solutions list'), expectedProdusctList, time)
 
-
-//String [] expectedProdusctList = ["About Us","Services","Products","Locations","Admin Page"]
+CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Account Services list'), expectedAccountServicesList, time)
 

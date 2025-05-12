@@ -15,43 +15,21 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import org.openqa.selenium.Keys
-import org.testng.Assert
-import org.testng.Assert as Keys
+import org.openqa.selenium.Keys as Keys
 
 int time = 10
 
+CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Products/Products button'),
+	 time,
+	  "Products",
+	   "Productss site link",
+		GlobalVariable.FirstRowNo,
+		 "Products",
+		  "Products site heading",
+		   GlobalVariable.FirstRowNo,
+			findTestObject('Object Repository/Products/Products site header'))
 
-CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Forum/Forum button'), 
-	time,
-	 "Parasoft Forums",
-	  "Site link", GlobalVariable.FirstRowNo,
-	   "Parasoft Forums", 
-	   "Parasoft heading", 
-	   GlobalVariable.FirstRowNo,
-	    findTestObject('Object Repository/Forum/Parasoft Forum heading'))
 
 
-/*
-
-WebUI.click(findTestObject('Object Repository/Forum/Forum button'))
-
-WebUI.delay(time)
-
-String ActualParaSoftForumUrl = WebUI.getUrl()
-
-println(ActualParaSoftForumUrl)
-
-String ExpectedParaSoftForumUrl = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Parasoft Forums", "Site link", GlobalVariable.FirstRowNo)
-
-//verify the site link
-Assert.assertEquals(ActualParaSoftForumUrl, ExpectedParaSoftForumUrl)
-
-String paraSoftHeader = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Parasoft Forums", "Parasoft heading", GlobalVariable.FirstRowNo)
-
-//verify that the portal redirected successfully
-WebUI.verifyElementText(findTestObject('Object Repository/Forum/Parasoft Forum heading'), paraSoftHeader)
-
-*/
 
 
