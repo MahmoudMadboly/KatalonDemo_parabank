@@ -7,7 +7,7 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>fc8ec4e8-378d-4fd7-a285-b10a6629dbef</dataFileGUID>
-   <dataSourceUrl>D:\Automation repo\KatalonDemo_parabank\Data Files\Test data.xlsx</dataSourceUrl>
+   <dataSourceUrl>D:\Automation repo\KatalonDemo_parabank_LastVersion\Data Files\Test data.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>

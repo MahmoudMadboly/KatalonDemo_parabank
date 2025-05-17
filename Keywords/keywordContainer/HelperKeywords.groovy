@@ -48,11 +48,11 @@ public class HelperKeywords {
 
 	//Navigate to a feature (UI element)
 	@Keyword
-	def navigateToFeature(TestObject targetObject, TestObject validatedObject , int rowNo) {
+	def navigateToFeature(TestObject targetFeatureToBeOpened, TestObject validatedObject , int time) {
 
-		WebUI.click(targetObject)
+		WebUI.click(targetFeatureToBeOpened)
 
-		WebUI.waitForElementPresent(validatedObject, rowNo)
+		WebUI.waitForElementPresent(validatedObject, time)
 	}
 
 
@@ -203,36 +203,33 @@ public class HelperKeywords {
 		if(actualList.length == 0) {
 
 			println("The actual list is empty.")
-
 		}else {
 
 			println("The actual list contains: " + Arrays.toString(actualList))
-
 		}
 
 		Assert.assertEquals(actualList, expectedList)
-
 	}
-	
-	
+
+
 	//redirect to another portal & check the redirected link
 	@Keyword
 	def verifyPortalRedirectionAndHeader(TestObject hyperLinkObject, int time, String URLsheetName , String URLcoulumnName, int URlrowIndex,String headerSheetName,String headerCoulmnName,int headerRowIndex,TestObject headerObject) {
-		
+
 		WebUI.click(hyperLinkObject)
-		
+
 		WebUI.delay(time)
-		
+
 		String actualURL = WebUI.getUrl()
-		
+
 		println("the actual url is/ " + actualURL)
-		
+
 		String expedtedURL = getTestData(URLsheetName, URLcoulumnName, URlrowIndex)
-		
+
 		Assert.assertEquals(actualURL, expedtedURL)
-		
+
 		String homePageHeader = getTestData(headerSheetName, headerCoulmnName, headerRowIndex)
-		
+
 		WebUI.verifyElementText(headerObject, homePageHeader)
 	}
 }
