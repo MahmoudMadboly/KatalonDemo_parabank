@@ -10,7 +10,8 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
-import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
@@ -21,31 +22,46 @@ import org.openqa.selenium.Keys as Keys
 
 int time = 5
 
-CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Customer care/Customer care button'))
+try {
 
-WebUI.waitForElementPresent(findTestObject('Object Repository/Customer care/Customer care heading'), GlobalVariable.FirstRowNo)
+	//navigate to the target screen & wait till screen header appear
+	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Customer care/Customer care button'),
+			findTestObject('Object Repository/Customer care/Customer care heading'),
+			time)
 
-String customerName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer name", GlobalVariable.FirstRowNo)
+	//get test data from test sheet
+	String customerName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer name", GlobalVariable.FirstRowNo)
 
-String customerEmail = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer email", GlobalVariable.FirstRowNo)
+	String customerEmail = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer email", GlobalVariable.FirstRowNo)
 
-String customerPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer phone", GlobalVariable.FirstRowNo)
+	String customerPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer phone", GlobalVariable.FirstRowNo)
 
-String message = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Message", GlobalVariable.FirstRowNo)
+	String message = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Message", GlobalVariable.FirstRowNo)
 
-String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
-// + CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Sign up", "Username", GlobalVariable.FirstRowNo)
+	String successMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Customer Care", "Customer care_Success message", GlobalVariable.FirstRowNo)
 
-println("expected message is" + successMessage)
+	//insert test data in test fields
+	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customerName)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer name'), customerName)
+	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer email'), customerEmail)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer email'), customerEmail)
+	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer phone'), customerPhone)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Customer phone'), customerPhone)
+	WebUI.sendKeys(findTestObject('Object Repository/Customer care/Message'), message)
 
-WebUI.sendKeys(findTestObject('Object Repository/Customer care/Message'), message)
+	//click on send button
+	WebUI.click(findTestObject('Object Repository/Customer care/Send to customer care button'))
 
-WebUI.click(findTestObject('Object Repository/Customer care/Send to customer care button'))
+	//validate test case is passed
+	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
 
-CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Customer care/Success message'), time, successMessage)
+}catch(Exception e) {
+
+	// Log the failure message in the Katalon report with the exception details
+	KeywordUtil.markFailed("customer care scenario is failed: " + e.getMessage())
+
+	// Take a screenshot of the current browser state to help with debugging
+	WebUI.takeScreenshot()
+
+}
+

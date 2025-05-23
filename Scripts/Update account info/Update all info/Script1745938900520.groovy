@@ -10,49 +10,68 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
-import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-
 int time = 5
 
-CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'))
+try{
 
-WebUI.waitForElementPresent(findTestObject('Object Repository/Register/Sign up heading'), time)
+	//navigate to the target screen & wait till screen header appear
+	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
+	findTestObject('Object Repository/Register/Sign up heading'),
+	time)
 
-String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
 
-String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
+	//fetch test data from test data sheet & store it in a string
+	String newFirsName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "First Name", GlobalVariable.SecondRowNo)
 
-String newAddress = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
+	String newLastName = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Last Name", GlobalVariable.SecondRowNo)
 
-String newCity = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
+	String newAddress = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Address", GlobalVariable.SecondRowNo)
 
-String newState = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
+	String newCity = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "City", GlobalVariable.SecondRowNo)
 
-String newZipCode = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
+	String newState = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "State", GlobalVariable.SecondRowNo)
 
-String newPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
+	String newZipCode = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Zip Code", GlobalVariable.SecondRowNo)
 
-String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
+	String newPhone = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Phone", GlobalVariable.SecondRowNo)
 
-// Add only the fields you want to update
-Map<String, String> partialUpdate = [
-	firstName: newFirsName,
-	lastName: newLastName,
-	address: newAddress,
-	city: newCity,
-	state: newState,
-	zipCode: newZipCode,
-	phone: newPhone
-]
+	String scenarioSuccessMessage = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Update profile info", "Update info_success message", GlobalVariable.FirstRowNo)
 
-CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(partialUpdate)
+	// Add only the fields you want to update
+	Map<String, String> fullUpdate = [
+		firstName: newFirsName,
+		lastName: newLastName,
+		address: newAddress,
+		city: newCity,
+		state: newState,
+		zipCode: newZipCode,
+		phone: newPhone
+	]
 
-WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
+	//do partial update
+	CustomKeywords.'keywordContainer.HelperKeywords.updateProfileInfo'(fullUpdate)
 
-CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
+	//click on update button
+	WebUI.click(findTestObject('Object Repository/Update profile info/Update info button'))
+
+	//validate test case is passed
+	CustomKeywords.'keywordContainer.HelperKeywords.validateTestCaseIsPassed'(findTestObject('Object Repository/Update profile info/Update info_success message'), time, scenarioSuccessMessage)
+
+}catch(Exception e){
+
+	// Log the failure message in the Katalon report with the exception details
+	KeywordUtil.markFailed("customer care scenario is failed: " + e.getMessage())
+
+	// Take a screenshot of the current browser state to help with debugging
+	WebUI.takeScreenshot()
+
+}
+

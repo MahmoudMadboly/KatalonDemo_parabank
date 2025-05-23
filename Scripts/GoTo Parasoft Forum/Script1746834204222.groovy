@@ -10,7 +10,8 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
-import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
@@ -21,37 +22,25 @@ import org.testng.Assert as Keys
 
 int time = 10
 
+try {
 
-CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Forum/Forum button'), 
-	time,
-	 "Parasoft Forums",
-	  "Site link", GlobalVariable.FirstRowNo,
-	   "Parasoft Forums", 
-	   "Parasoft heading", 
-	   GlobalVariable.FirstRowNo,
-	    findTestObject('Object Repository/Forum/Parasoft Forum heading'))
-
-
-/*
-
-WebUI.click(findTestObject('Object Repository/Forum/Forum button'))
-
-WebUI.delay(time)
-
-String ActualParaSoftForumUrl = WebUI.getUrl()
-
-println(ActualParaSoftForumUrl)
-
-String ExpectedParaSoftForumUrl = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Parasoft Forums", "Site link", GlobalVariable.FirstRowNo)
-
-//verify the site link
-Assert.assertEquals(ActualParaSoftForumUrl, ExpectedParaSoftForumUrl)
-
-String paraSoftHeader = CustomKeywords.'keywordContainer.HelperKeywords.getTestData'("Parasoft Forums", "Parasoft heading", GlobalVariable.FirstRowNo)
-
-//verify that the portal redirected successfully
-WebUI.verifyElementText(findTestObject('Object Repository/Forum/Parasoft Forum heading'), paraSoftHeader)
-
-*/
+	//go to products end point  & validate the screen header
+	CustomKeywords.'keywordContainer.HelperKeywords.verifyPortalRedirectionAndHeader'(findTestObject('Object Repository/Forum/Forum button'),
+			time,
+			"Parasoft Forums",
+			"Site link", GlobalVariable.FirstRowNo,
+			"Parasoft Forums",
+			"Parasoft heading",
+			GlobalVariable.FirstRowNo,
+			findTestObject('Object Repository/Forum/Parasoft Forum heading'))
 
 
+}catch(Exception e) {
+
+	// Log the failure message in the Katalon report with the exception details
+	KeywordUtil.markFailed("customer care scenario is failed: " + e.getMessage())
+
+	// Take a screenshot of the current browser state to help with debugging
+	WebUI.takeScreenshot()
+
+}

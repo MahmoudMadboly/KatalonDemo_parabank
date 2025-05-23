@@ -23,15 +23,33 @@ import org.testng.Assert as Keys
 
 int time = 5
 
-CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Map site/Site map button')
-		,findTestObject('Object Repository/Map site/Header'),time
-		)
 
-String [] expectedProdusctList = ["About Us","Services","Products","Locations","Admin Page"]
+try{
+	
+	//navigate to the target screen & wait till screen header appear
+	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Map site/Site map button')
+			,findTestObject('Object Repository/Map site/Header'),time
+			)
 
-String [] expectedAccountServicesList = ["Open New Account","Accounts Overview","Transfer Funds","Bill Pay","Find Transactions","Update Contact Info","Request Loan","Log Out"]
+			//store product list values in an array
+	String [] expectedProdusctList = ["About Us","Services","Products","Locations","Admin Page"]
 
-CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Solutions list'), expectedProdusctList, time)
+	//store account services values in an array
+	String [] expectedAccountServicesList = ["Open New Account","Accounts Overview","Transfer Funds","Bill Pay","Find Transactions","Update Contact Info","Request Loan","Log Out"]
 
-CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Account Services list'), expectedAccountServicesList, time)
+	// get actual product list values & compare them with the expected list
+	CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Solutions list'), expectedProdusctList, time)
 
+	// get actual Account Services list values & compare them with the expected list
+	CustomKeywords.'keywordContainer.HelperKeywords.checkSiteMapScreenContent'(findTestObject('Object Repository/Map site/Account Services list'), expectedAccountServicesList, time)
+
+
+}catch(Exception e){
+
+	// Log the failure message in the Katalon report with the exception details
+	KeywordUtil.markFailed("customer care scenario is failed: " + e.getMessage())
+
+	// Take a screenshot of the current browser state to help with debugging
+	WebUI.takeScreenshot()
+
+}
