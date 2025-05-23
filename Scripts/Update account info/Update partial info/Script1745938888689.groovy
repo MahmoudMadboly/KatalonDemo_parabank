@@ -25,7 +25,7 @@ int time = 5
 
 try{
 
-	//navigate to the target screen & wait till screen header appear
+	//navigate to target screen & wait till screen header appear
 	CustomKeywords.'keywordContainer.HelperKeywords.navigateToFeature'(findTestObject('Object Repository/Update profile info/Update profile info button'),
 		findTestObject('Object Repository/Register/Sign up heading'),
 		time)
